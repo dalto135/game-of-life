@@ -3,7 +3,7 @@ let squares = document.querySelector("section").querySelectorAll("button");
 function be() {
     squares.forEach(square => {
 
-        let location = square.getAttribute("class");
+        let location = square.getAttribute("data-coord");
         let locationArray = location.split(',');
         let locationNumberArray = [Number(locationArray[0]), Number(locationArray[1])]
         let adjacent = [];
@@ -31,30 +31,36 @@ function be() {
             }
         }
 
-        count = 0;
-
-        adjacent.forEach(neighbor => {
-            console.log(neighbor);
-            let neighborButton = document.querySelector('.' + neighbor);
-            if (neighborButton.getAttribute("id")) {
-                count++;
-            }
-        })
-
-        if (count == 3) {
-            square.setAttribute("id", "alive");
-        }
-        else {
-            square.removeAttribute("id");
-        }
-
-        // if (square = squares[150]) {
-        //     console.log('LOCATION');
-        //     console.log(location);
-        //     console.log('ADJACENT');
-        //     console.log(adjacent);
+        // count = 0;
+        // adjacent.forEach(neighbor => {
+        //     console.log(neighbor);
+        //     let neighborButton = document.querySelector('[data-coord="' + neighbor + '"]');
+        //     if (neighborButton.getAttribute("id")) {
+        //         count++;
+        //     }
+        // })
+        // if (count == 3) {
+        //     square.setAttribute("data-next", "born");
         // }
+
+        square.setAttribute("data-test", "test");
+        if (square == squares[101]) {
+            console.log('LOCATION');
+            console.log(location);
+            console.log('ADJACENT');
+            console.log(adjacent);
+        }
     });
+
+    // squares.forEach(square => {
+    //     if (square.querySelector("data-next") && square.querySelector("data-next") == "born") {
+    //         square.setAttribute("id", "alive");
+    //     }
+    //     else {
+    //         square.removeAttribute("id");
+    //     }
+    //     square.removeAttribute("data-next");
+    // });
 }
 
 squares.forEach(square => {
@@ -73,9 +79,9 @@ squares.forEach(square => {
 let button = document.querySelector("#be");
 
 function start() {
-    setInterval(() => {
+    // setInterval(() => {
         be();
-    }, 250);
+    // }, 250);
 }
 
 button.addEventListener("click", start);
