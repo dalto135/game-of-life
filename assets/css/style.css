@@ -2,6 +2,7 @@
     text-align: center;
     align-items: center;
     justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 html {
@@ -27,15 +28,28 @@ button {
     background-color: rgb(0, 255, 128);
 }
 
-#be {
+#github {
+    margin-top: 6px;
+}
+
+a, #be {
     color: white;
-    margin-bottom: 6px;
     width: 72px;
     height: 24px;
     border: 1px solid rgb(64, 64, 64);
     border-radius: 6px;
 }
 
-button:hover {
+a {
+    text-decoration-line: None;
+    font-size: small;
+    padding: 3px;
+}
+
+#be {
+    margin-bottom: 6px;
+}
+
+a:hover, button:hover {
     background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.25));
 }
