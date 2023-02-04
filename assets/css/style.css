@@ -36,6 +36,6 @@ button {
     border-radius: 6px;
 }
 
-#be:hover {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(0, 0, 0, 0));
+button:hover {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.25));
 }

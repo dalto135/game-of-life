@@ -13,13 +13,19 @@ function be() {
 
             if (locationNumberArray[1] - 1 >= 0) {
                 adjacent.push((locationNumberArray[0] - 1).toString() + ',' + (locationNumberArray[1] - 1).toString());
-                adjacent.push((locationNumberArray[0]).toString() + ',' + (locationNumberArray[1] - 1).toString());
             }
             if (locationNumberArray[1] + 1 <= 99) {
                 adjacent.push((locationNumberArray[0] - 1).toString() + ',' + (locationNumberArray[1] + 1).toString());
-                adjacent.push((locationNumberArray[0]).toString() + ',' + (locationNumberArray[1] + 1).toString());
             }
         }
+
+        if (locationNumberArray[1] - 1 >= 0) {
+            adjacent.push((locationNumberArray[0]).toString() + ',' + (locationNumberArray[1] - 1).toString());
+        }
+        if (locationNumberArray[1] + 1 <= 99) {
+            adjacent.push((locationNumberArray[0]).toString() + ',' + (locationNumberArray[1] + 1).toString());
+        }
+
         if (locationNumberArray[0] + 1 <= 99) {
             adjacent.push((locationNumberArray[0] + 1).toString() + ',' + (locationNumberArray[1]).toString());
 
@@ -31,36 +37,35 @@ function be() {
             }
         }
 
-        // count = 0;
-        // adjacent.forEach(neighbor => {
-        //     console.log(neighbor);
-        //     let neighborButton = document.querySelector('[data-coord="' + neighbor + '"]');
-        //     if (neighborButton.getAttribute("id")) {
-        //         count++;
-        //     }
-        // })
-        // if (count == 3) {
-        //     square.setAttribute("data-next", "born");
-        // }
+        count = 0;
+        adjacent.forEach(neighbor => {
+            let neighborButton = document.querySelector('[data-coord="' + neighbor + '"]');
+            if (neighborButton.getAttribute("id")) {
+                count++;
+            }
+        })
 
-        square.setAttribute("data-test", "test");
-        if (square == squares[101]) {
-            console.log('LOCATION');
-            console.log(location);
-            console.log('ADJACENT');
-            console.log(adjacent);
+        if (square.getAttribute("id")) {
+            if (count == 2 || count == 3) {
+                square.setAttribute("data-next", "born");
+            }
+        }
+        else {
+            if (count == 2 || count == 3) { // Original game of life is (count == 2 || count == 3) when alive, (count == 3) when dead
+                square.setAttribute("data-next", "born");
+            }
         }
     });
 
-    // squares.forEach(square => {
-    //     if (square.querySelector("data-next") && square.querySelector("data-next") == "born") {
-    //         square.setAttribute("id", "alive");
-    //     }
-    //     else {
-    //         square.removeAttribute("id");
-    //     }
-    //     square.removeAttribute("data-next");
-    // });
+    squares.forEach(square => {
+        if (square.getAttribute("data-next")) {
+            square.setAttribute("id", "alive");
+        }
+        else {
+            square.removeAttribute("id");
+        }
+        square.removeAttribute("data-next");
+    });
 }
 
 squares.forEach(square => {
@@ -79,9 +84,9 @@ squares.forEach(square => {
 let button = document.querySelector("#be");
 
 function start() {
-    // setInterval(() => {
+    setInterval(() => {
         be();
-    // }, 250);
+    }, 10000);
 }
 
 button.addEventListener("click", start);
