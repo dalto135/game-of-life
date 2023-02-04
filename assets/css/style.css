@@ -13,6 +13,10 @@ html {
     display: flex;
 }
 
+h1 {
+    color: white;
+}
+
 button {
     background-color: black;
     height: 6px;
