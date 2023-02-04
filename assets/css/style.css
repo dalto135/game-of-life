@@ -16,7 +16,7 @@ button {
     background-color: black;
     height: 6px;
     width: 6px;
-    border: 1px solid rgb(64, 64, 64);
+    border: 0.5px solid rgb(64, 64, 64);
     /* border: None; */
     border-radius: 1px;
     margin: 1px;
