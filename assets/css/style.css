@@ -9,12 +9,27 @@ html {
     background-color: black;
 }
 
+header {
+    display: flex;
+    flex-direction: column;
+}
+
+div {
+    margin-bottom: 6px;
+}
+
 .row {
     display: flex;
 }
 
 h1 {
     color: white;
+}
+
+p {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: small;
+    width: 50%;
 }
 
 button {
@@ -32,10 +47,6 @@ button {
     background-color: rgb(0, 255, 128);
 }
 
-#github {
-    margin-top: 6px;
-}
-
 a, #be {
     color: white;
     width: 72px;
@@ -48,10 +59,6 @@ a {
     text-decoration-line: None;
     font-size: small;
     padding: 3px;
-}
-
-#be {
-    margin-bottom: 6px;
 }
 
 a:hover, button:hover {

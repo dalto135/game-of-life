@@ -45,13 +45,16 @@ function be() {
             }
         })
 
+        // Alive
         if (square.getAttribute("id")) {
             if (count == 2 || count == 3) {
                 square.setAttribute("data-next", "born");
             }
         }
+        // Dead
         else {
-            if (count == 2 || count == 3) { // Original game of life is (count == 2 || count == 3) when alive, (count == 3) when dead
+            // Original game of life is (count == 2 || count == 3) when alive, (count == 3) when dead
+            if (count == 2 || count == 3) {
                 square.setAttribute("data-next", "born");
             }
         }
