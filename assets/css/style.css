@@ -24,6 +24,7 @@ div {
 
 h1 {
     color: white;
+    margin-bottom: 0px;
 }
 
 p {
@@ -49,8 +50,8 @@ button {
 
 a, #be {
     color: white;
-    width: 72px;
-    height: 24px;
+    width: 48px;
+    height: 22px;
     border: 1px solid rgb(64, 64, 64);
     border-radius: 6px;
 }
