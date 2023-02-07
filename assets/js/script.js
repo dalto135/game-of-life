@@ -1,4 +1,5 @@
 let squares = document.querySelector("section").querySelectorAll("button");
+let buttons = document.querySelectorAll("button");
 
 function be() {
     squares.forEach(square => {
@@ -71,20 +72,20 @@ function be() {
     });
 }
 
-squares.forEach(square => {
+buttons.forEach(button => {
     function cross() {
-        if (square.getAttribute("id")) {
-            square.removeAttribute("id");
+        if (button.getAttribute("id")) {
+            button.removeAttribute("id");
         }
         else {
-            square.setAttribute("id", "alive");
+            button.setAttribute("id", "alive");
         }
     }
 
-    square.addEventListener("click", cross);
+    button.addEventListener("click", cross);
 })
 
-let button = document.querySelector("#be");
+let button = document.querySelector(".be");
 
 function start() {
     setInterval(() => {
