@@ -64,11 +64,11 @@ function be() {
     squares.forEach(square => {
         if (square.getAttribute("data-next")) {
             square.setAttribute("id", "alive");
+            square.removeAttribute("data-next");
         }
         else {
             square.removeAttribute("id");
         }
-        square.removeAttribute("data-next");
     });
 }
 
@@ -83,14 +83,20 @@ buttons.forEach(button => {
     }
 
     button.addEventListener("click", cross);
-})
+});
 
 let button = document.querySelector(".be");
 
+let game;
 function start() {
-    setInterval(() => {
-        be();
-    }, 10000);
+    if (button.getAttribute("id")) {
+        game = setInterval(() => {
+            be();
+        }, 10000);
+    }
+    else {
+        clearInterval(game);
+    }
 }
 
 button.addEventListener("click", start);
