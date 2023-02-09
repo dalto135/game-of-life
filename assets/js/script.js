@@ -72,21 +72,46 @@ function be() {
     });
 }
 
-buttons.forEach(button => {
+// Toggle color of grid squares
+squares.forEach(square => {
     function cross() {
-        if (button.getAttribute("id")) {
-            button.removeAttribute("id");
+        if (square.getAttribute("id")) {
+            square.removeAttribute("id");
         }
         else {
-            button.setAttribute("id", "alive");
+            square.setAttribute("id", "alive");
         }
     }
 
-    button.addEventListener("click", cross);
+    square.addEventListener("click", cross);
 });
 
+// Clear the grid
+let clear = document.querySelector(".clear");
+
+function clearSquares() {
+    squares.forEach(square => {
+        square.removeAttribute("id");
+    })
+}
+
+clear.addEventListener("click", clearSquares);
+
+// Toggle color of "Be" button
 let button = document.querySelector(".be");
 
+function toggle() {
+    if (button.getAttribute("id")) {
+        button.removeAttribute("id");
+    }
+    else {
+        button.setAttribute("id", "alive");
+    }
+}
+
+button.addEventListener("click", toggle);
+
+// Run the game
 let game;
 function start() {
     if (button.getAttribute("id")) {
