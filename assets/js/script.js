@@ -9,34 +9,22 @@ function be() {
         let locationNumberArray = [Number(locationArray[0]), Number(locationArray[1])]
         let adjacent = [];
 
-        if (locationNumberArray[0] - 1 >= 0) {
-            adjacent.push((locationNumberArray[0] - 1).toString() + ',' + (locationNumberArray[1]).toString());
+        let adjacentArray = [
+            [-1,-1],
+            [0,-1],
+            [1,-1],
+            [-1,0],
+            [1,0],
+            [-1,1],
+            [0,1],
+            [1,1]
+        ];
 
-            if (locationNumberArray[1] - 1 >= 0) {
-                adjacent.push((locationNumberArray[0] - 1).toString() + ',' + (locationNumberArray[1] - 1).toString());
+        adjacentArray.forEach(coord => {
+            if (document.querySelector('[data-coord="' + (locationNumberArray[0] + coord[0]).toString() + "," + (locationNumberArray[1] + coord[1]).toString() + '"]')) {
+                adjacent.push((locationNumberArray[0] + coord[0]).toString() + "," + (locationNumberArray[1] + coord[1]).toString());
             }
-            if (locationNumberArray[1] + 1 <= 99) {
-                adjacent.push((locationNumberArray[0] - 1).toString() + ',' + (locationNumberArray[1] + 1).toString());
-            }
-        }
-
-        if (locationNumberArray[1] - 1 >= 0) {
-            adjacent.push((locationNumberArray[0]).toString() + ',' + (locationNumberArray[1] - 1).toString());
-        }
-        if (locationNumberArray[1] + 1 <= 99) {
-            adjacent.push((locationNumberArray[0]).toString() + ',' + (locationNumberArray[1] + 1).toString());
-        }
-
-        if (locationNumberArray[0] + 1 <= 99) {
-            adjacent.push((locationNumberArray[0] + 1).toString() + ',' + (locationNumberArray[1]).toString());
-
-            if (locationNumberArray[1] - 1 >= 0) {
-                adjacent.push((locationNumberArray[0] + 1).toString() + ',' + (locationNumberArray[1] - 1).toString());
-            }
-            if (locationNumberArray[1] + 1 <= 99) {
-                adjacent.push((locationNumberArray[0] + 1).toString() + ',' + (locationNumberArray[1] + 1).toString());
-            }
-        }
+        })
 
         count = 0;
         adjacent.forEach(neighbor => {
